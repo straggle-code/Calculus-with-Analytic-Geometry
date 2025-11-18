@@ -1,0 +1,24 @@
+name: LaTeX Build 
+on: [push]
+
+jobs: 
+  build_latex: 
+    runs-on: ubuntu-latest 
+    steps: 
+      – name: Set up Git repository
+        uses: actions/checkout@v3
+      – name: Calculus-with-Analytic-Geometry
+        uses: xu-cheng/latex-action@v2
+        with:
+          latexmk_shell_escape: true
+          latexmk_use_lualatex: true
+          root_file: calc.tex
+          working_directory: Calculus-with-Analytic-Geometry
+     – name: Upload PDF file
+     uses: actions/upload-artifact@v3
+     with: 
+      name: 'Calculus with Analytic Geometry'
+      path: calc.pdf
+      run: pdflatex calc.tex
+
+    
