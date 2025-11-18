@@ -1,0 +1,1 @@
+yaml name: LaTeX Build on: push: branches: – main jobs: build: runs-on: ubuntu-latest steps: – name: Checkout code uses: actions/checkout@v2 – name: Install LaTeX run: sudo apt-get install texlive-full – name: Compile LaTeX run: pdflatex Calculus-with-Analytic-Geometry.tex
